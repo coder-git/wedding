@@ -29,7 +29,6 @@ public class TestDemoController {
     }
 
     @GetMapping("/getUser")
-
     public R getUser(){
         return R.status(true);
     }
