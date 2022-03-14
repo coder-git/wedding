@@ -13,7 +13,10 @@ server:
     direct-buffers: true
 
 spring:
-#  redis:
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+    #  redis:
 #    ##redis 单机环境配置
 #    host: 192.168.7.129
 #    port: 6379
