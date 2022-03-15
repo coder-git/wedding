@@ -14,9 +14,9 @@
 			<property name="suppressAllComments" value="true" />
 		</commentGenerator>
 		<!--jdbc的数据库连接 -->
-		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://192.168.0.49:3306/Choice?serverTimezone=UTC"
-			userId="root" password="root">
+		<jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.1.200:3306/wedding?serverTimezone=UTC"
+			userId="root" password="mysqlPassword4!">
 		</jdbcConnection>
 		<!--非必须，类型处理器，在数据库类型和java类型之间的转换控制 -->
 		<javaTypeResolver>
@@ -28,7 +28,7 @@
 		<!-- targetPackage：生成的实体类所在的包 -->
 		<!-- targetProject：生成的实体类所在的硬盘位置 -->
 		<javaModelGenerator
-			targetPackage="com.choice.autoModel"
+			targetPackage="com.demo.model"
 			targetProject="src/main/java">
 			<!-- 是否允许子包 -->
 			<property name="enableSubPackages" value="false" />
@@ -40,26 +40,41 @@
 			<property name="immutable" value="false" />
 		</javaModelGenerator>
 		<!-- targetPackage 和 targetProject：生成的 mapper 文件的包和位置 -->
-		<sqlMapGenerator targetPackage="autoMapper"
+		<sqlMapGenerator targetPackage="mapper"
 			targetProject="src/main/resources/mapper/">
 			<!-- 针对数据库的一个配置，是否把 schema 作为字包名 -->
 			<property name="enableSubPackages" value="false" />
 		</sqlMapGenerator> 
 		<!-- targetPackage 和 targetProject：生成的 interface 文件的包和位置 -->
 		<javaClientGenerator type="XMLMAPPER"
-			targetPackage="com.choice.autoDao"
+			targetPackage="com.demo.dao"
 			targetProject="src/main/java">
 			<!-- 针对 oracle 数据库的一个配置，是否把 schema 作为字包名 -->
 			<property name="enableSubPackages" value="false" />
 		</javaClientGenerator>
-		<table tableName="factor_price"
-			domainObjectName="FactorPrice" enableCountByExample="false"
+		<table tableName="sys_admin"
+			domainObjectName="SysAdmin" enableCountByExample="false"
 			enableUpdateByExample="false" enableDeleteByExample="false"
 			enableSelectByExample="false" selectByExampleQueryId="false"></table>
 
-		<table tableName="factor_type"
+		<table tableName="SysCategory"
 			domainObjectName="FactorType" enableCountByExample="false"
 			enableUpdateByExample="false" enableDeleteByExample="false"
 			enableSelectByExample="false" selectByExampleQueryId="false"></table>
+
+		<table tableName="sys_customer_information"
+			   domainObjectName="SysCustomerInformation" enableCountByExample="false"
+			   enableUpdateByExample="false" enableDeleteByExample="false"
+			   enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="sys_form_info"
+			   domainObjectName="SysFormInfo" enableCountByExample="false"
+			   enableUpdateByExample="false" enableDeleteByExample="false"
+			   enableSelectByExample="false" selectByExampleQueryId="false"></table>
+		<table tableName="sys_user"
+			   domainObjectName="SysUser" enableCountByExample="false"
+			   enableUpdateByExample="false" enableDeleteByExample="false"
+			   enableSelectByExample="false" selectByExampleQueryId="false"></table>
+
+
 	</context>
 </generatorConfiguration>
