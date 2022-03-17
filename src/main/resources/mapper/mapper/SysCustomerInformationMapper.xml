@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.dao.SysCustomerInformationMapper">
+  <resultMap id="BaseResultMap" type="com.demo.model.SysCustomerInformation">
+    <constructor>
+      <idArg column="customerId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="formId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="fullname" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="gender" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="nationality" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="height" javaType="java.lang.Byte" jdbcType="TINYINT" />
+      <arg column="birthday" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="education" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="companyAndOccupation" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="maritalStatus" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="workingAddress" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="phoneNumber" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="weight" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="income" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="introduceYourself" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="spouseRequirements" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="half-lengthPhoto" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="fullBodyPhoto" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="createTime" javaType="java.lang.Long" jdbcType="BIGINT" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    customerId, formId, fullname, gender, nationality, height, birthday, education, companyAndOccupation, 
+    maritalStatus, workingAddress, phoneNumber, weight, income, introduceYourself, spouseRequirements, 
+    half-lengthPhoto, fullBodyPhoto, createTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_customer_information
+    where customerId = #{customerid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_customer_information
+    where customerId = #{customerid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.demo.model.SysCustomerInformation">
+    insert into sys_customer_information (customerId, formId, fullname, 
+      gender, nationality, height, 
+      birthday, education, companyAndOccupation, 
+      maritalStatus, workingAddress, phoneNumber, 
+      weight, income, introduceYourself, 
+      spouseRequirements, half-lengthPhoto, fullBodyPhoto, 
+      createTime)
+    values (#{customerid,jdbcType=INTEGER}, #{formid,jdbcType=INTEGER}, #{fullname,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=VARCHAR}, #{nationality,jdbcType=VARCHAR}, #{height,jdbcType=TINYINT}, 
+      #{birthday,jdbcType=VARCHAR}, #{education,jdbcType=VARCHAR}, #{companyandoccupation,jdbcType=VARCHAR}, 
+      #{maritalstatus,jdbcType=VARCHAR}, #{workingaddress,jdbcType=VARCHAR}, #{phonenumber,jdbcType=VARCHAR}, 
+      #{weight,jdbcType=INTEGER}, #{income,jdbcType=VARCHAR}, #{introduceyourself,jdbcType=VARCHAR}, 
+      #{spouserequirements,jdbcType=VARCHAR}, #{halfLengthphoto,jdbcType=VARCHAR}, #{fullbodyphoto,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.demo.model.SysCustomerInformation">
+    insert into sys_customer_information
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="customerid != null">
+        customerId,
+      </if>
+      <if test="formid != null">
+        formId,
+      </if>
+      <if test="fullname != null">
+        fullname,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="nationality != null">
+        nationality,
+      </if>
+      <if test="height != null">
+        height,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+      <if test="education != null">
+        education,
+      </if>
+      <if test="companyandoccupation != null">
+        companyAndOccupation,
+      </if>
+      <if test="maritalstatus != null">
+        maritalStatus,
+      </if>
+      <if test="workingaddress != null">
+        workingAddress,
+      </if>
+      <if test="phonenumber != null">
+        phoneNumber,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="income != null">
+        income,
+      </if>
+      <if test="introduceyourself != null">
+        introduceYourself,
+      </if>
+      <if test="spouserequirements != null">
+        spouseRequirements,
+      </if>
+      <if test="halfLengthphoto != null">
+        half-lengthPhoto,
+      </if>
+      <if test="fullbodyphoto != null">
+        fullBodyPhoto,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="customerid != null">
+        #{customerid,jdbcType=INTEGER},
+      </if>
+      <if test="formid != null">
+        #{formid,jdbcType=INTEGER},
+      </if>
+      <if test="fullname != null">
+        #{fullname,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null">
+        #{height,jdbcType=TINYINT},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="companyandoccupation != null">
+        #{companyandoccupation,jdbcType=VARCHAR},
+      </if>
+      <if test="maritalstatus != null">
+        #{maritalstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="workingaddress != null">
+        #{workingaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenumber != null">
+        #{phonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=INTEGER},
+      </if>
+      <if test="income != null">
+        #{income,jdbcType=VARCHAR},
+      </if>
+      <if test="introduceyourself != null">
+        #{introduceyourself,jdbcType=VARCHAR},
+      </if>
+      <if test="spouserequirements != null">
+        #{spouserequirements,jdbcType=VARCHAR},
+      </if>
+      <if test="halfLengthphoto != null">
+        #{halfLengthphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="fullbodyphoto != null">
+        #{fullbodyphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.demo.model.SysCustomerInformation">
+    update sys_customer_information
+    <set>
+      <if test="formid != null">
+        formId = #{formid,jdbcType=INTEGER},
+      </if>
+      <if test="fullname != null">
+        fullname = #{fullname,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        nationality = #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null">
+        height = #{height,jdbcType=TINYINT},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=VARCHAR},
+      </if>
+      <if test="education != null">
+        education = #{education,jdbcType=VARCHAR},
+      </if>
+      <if test="companyandoccupation != null">
+        companyAndOccupation = #{companyandoccupation,jdbcType=VARCHAR},
+      </if>
+      <if test="maritalstatus != null">
+        maritalStatus = #{maritalstatus,jdbcType=VARCHAR},
+      </if>
+      <if test="workingaddress != null">
+        workingAddress = #{workingaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="phonenumber != null">
+        phoneNumber = #{phonenumber,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        weight = #{weight,jdbcType=INTEGER},
+      </if>
+      <if test="income != null">
+        income = #{income,jdbcType=VARCHAR},
+      </if>
+      <if test="introduceyourself != null">
+        introduceYourself = #{introduceyourself,jdbcType=VARCHAR},
+      </if>
+      <if test="spouserequirements != null">
+        spouseRequirements = #{spouserequirements,jdbcType=VARCHAR},
+      </if>
+      <if test="halfLengthphoto != null">
+        half-lengthPhoto = #{halfLengthphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="fullbodyphoto != null">
+        fullBodyPhoto = #{fullbodyphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=BIGINT},
+      </if>
+    </set>
+    where customerId = #{customerid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.demo.model.SysCustomerInformation">
+    update sys_customer_information
+    set formId = #{formid,jdbcType=INTEGER},
+      fullname = #{fullname,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=VARCHAR},
+      nationality = #{nationality,jdbcType=VARCHAR},
+      height = #{height,jdbcType=TINYINT},
+      birthday = #{birthday,jdbcType=VARCHAR},
+      education = #{education,jdbcType=VARCHAR},
+      companyAndOccupation = #{companyandoccupation,jdbcType=VARCHAR},
+      maritalStatus = #{maritalstatus,jdbcType=VARCHAR},
+      workingAddress = #{workingaddress,jdbcType=VARCHAR},
+      phoneNumber = #{phonenumber,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=INTEGER},
+      income = #{income,jdbcType=VARCHAR},
+      introduceYourself = #{introduceyourself,jdbcType=VARCHAR},
+      spouseRequirements = #{spouserequirements,jdbcType=VARCHAR},
+      half-lengthPhoto = #{halfLengthphoto,jdbcType=VARCHAR},
+      fullBodyPhoto = #{fullbodyphoto,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=BIGINT}
+    where customerId = #{customerid,jdbcType=INTEGER}
+  </update>
+</mapper>
