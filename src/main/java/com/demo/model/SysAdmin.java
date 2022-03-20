@@ -9,14 +9,6 @@ public class SysAdmin {
 
     private String systemsaltkey;
 
-
-    /**
-     *
-     * @param id
-     * @param systemaccount
-     * @param systempassword
-     * @param systemsaltkey
-     */
     public SysAdmin(Integer id, String systemaccount, String systempassword, String systemsaltkey) {
         this.id = id;
         this.systemaccount = systemaccount;

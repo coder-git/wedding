@@ -1,6 +1,6 @@
 package com.demo.model;
 
-public class SysUser {
+public class User {
     private Integer userid;
 
     private String username;
@@ -9,24 +9,13 @@ public class SysUser {
 
     private String userpassword;
 
-    private Integer usertelephonenumber;
+    private String usertelephonenumber;
 
     private Long createtime;
 
     private String usersalt;
 
-
-    /**
-     *
-     * @param userid
-     * @param username
-     * @param useraccount
-     * @param userpassword
-     * @param usertelephonenumber
-     * @param createtime
-     * @param usersalt
-     */
-    public SysUser(Integer userid, String username, String useraccount, String userpassword, Integer usertelephonenumber, Long createtime, String usersalt) {
+    public User(Integer userid, String username, String useraccount, String userpassword, String usertelephonenumber, Long createtime, String usersalt) {
         this.userid = userid;
         this.username = username;
         this.useraccount = useraccount;
@@ -36,7 +25,7 @@ public class SysUser {
         this.usersalt = usersalt;
     }
 
-    public SysUser() {
+    public User() {
         super();
     }
 
@@ -72,12 +61,12 @@ public class SysUser {
         this.userpassword = userpassword == null ? null : userpassword.trim();
     }
 
-    public Integer getUsertelephonenumber() {
+    public String getUsertelephonenumber() {
         return usertelephonenumber;
     }
 
-    public void setUsertelephonenumber(Integer usertelephonenumber) {
-        this.usertelephonenumber = usertelephonenumber;
+    public void setUsertelephonenumber(String usertelephonenumber) {
+        this.usertelephonenumber = usertelephonenumber == null ? null : usertelephonenumber.trim();
     }
 
     public Long getCreatetime() {

@@ -1,6 +1,4 @@
 package com.demo.common.config;
-
-import com.demo.common.filter.JwtAuthenticationTokenFilter;
 import com.demo.common.jwt.JwtAccessDeniedHandler;
 import com.demo.common.jwt.JwtAuthenticationEntryPoint;
 import com.demo.common.jwt.JwtTokenUtils;
@@ -22,17 +20,17 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final JwtAccessDeniedHandler jwtAccessDeniedHandler;
-    private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
-    private final JwtTokenUtils jwtTokenUtils;
-
-    public SecurityConfig(JwtAccessDeniedHandler jwtAccessDeniedHandler, JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint, JwtTokenUtils jwtTokenUtils) {
-
-        this.jwtAccessDeniedHandler = jwtAccessDeniedHandler;
-        this.jwtAuthenticationEntryPoint = jwtAuthenticationEntryPoint;
-        this.jwtTokenUtils = jwtTokenUtils;
-
-    }
+//    private final JwtAccessDeniedHandler jwtAccessDeniedHandler;
+//    private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
+//    private final JwtTokenUtils jwtTokenUtils;
+//
+////    public SecurityConfig(JwtAccessDeniedHandler jwtAccessDeniedHandler, JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint, JwtTokenUtils jwtTokenUtils) {
+////
+////        this.jwtAccessDeniedHandler = jwtAccessDeniedHandler;
+////        this.jwtAuthenticationEntryPoint = jwtAuthenticationEntryPoint;
+////        this.jwtTokenUtils = jwtTokenUtils;
+////
+////    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -47,8 +45,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 // 授权异常
                 .exceptionHandling()
-                .authenticationEntryPoint(jwtAuthenticationEntryPoint)
-                .accessDeniedHandler(jwtAccessDeniedHandler)
+//                .authenticationEntryPoint(jwtAuthenticationEntryPoint)
+//                .accessDeniedHandler(jwtAccessDeniedHandler)
 
                 // 防止iframe 造成跨域
                 .and()
@@ -85,9 +83,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // 禁用缓存
         httpSecurity.headers().cacheControl();
 
-        // 添加JWT filter
-        httpSecurity
-                .apply(new TokenConfigurer(jwtTokenUtils));
+//        // 添加JWT filter
+//        httpSecurity
+//                .apply(new TokenConfigurer(jwtTokenUtils));
     }
 
     public class TokenConfigurer extends SecurityConfigurerAdapter<DefaultSecurityFilterChain, HttpSecurity> {
@@ -99,10 +97,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             this.jwtTokenUtils = jwtTokenUtils;
         }
 
-        @Override
-        public void configure(HttpSecurity http) {
-            JwtAuthenticationTokenFilter customFilter = new JwtAuthenticationTokenFilter(jwtTokenUtils);
-            http.addFilterBefore(customFilter, UsernamePasswordAuthenticationFilter.class);
-        }
+//        @Override
+//        public void configure(HttpSecurity http) {
+//            JwtAuthenticationTokenFilter customFilter = new JwtAuthenticationTokenFilter(jwtTokenUtils);
+//            http.addFilterBefore(customFilter, UsernamePasswordAuthenticationFilter.class);
+//        }
     }
 }

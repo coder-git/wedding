@@ -81,4 +81,244 @@
       systemSaltKey = #{systemsaltkey,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <resultMap id="BaseResultMap" type="com.demo.model.SysAdmin">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="systemAccount" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="systemPassword" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="systemSaltKey" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, systemAccount, systemPassword, systemSaltKey
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_admin
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_admin
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.demo.model.SysAdmin">
+    insert into sys_admin (id, systemAccount, systemPassword, 
+      systemSaltKey)
+    values (#{id,jdbcType=INTEGER}, #{systemaccount,jdbcType=VARCHAR}, #{systempassword,jdbcType=VARCHAR}, 
+      #{systemsaltkey,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.demo.model.SysAdmin">
+    insert into sys_admin
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="systemaccount != null">
+        systemAccount,
+      </if>
+      <if test="systempassword != null">
+        systemPassword,
+      </if>
+      <if test="systemsaltkey != null">
+        systemSaltKey,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="systemaccount != null">
+        #{systemaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="systempassword != null">
+        #{systempassword,jdbcType=VARCHAR},
+      </if>
+      <if test="systemsaltkey != null">
+        #{systemsaltkey,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.demo.model.SysAdmin">
+    update sys_admin
+    <set>
+      <if test="systemaccount != null">
+        systemAccount = #{systemaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="systempassword != null">
+        systemPassword = #{systempassword,jdbcType=VARCHAR},
+      </if>
+      <if test="systemsaltkey != null">
+        systemSaltKey = #{systemsaltkey,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.demo.model.SysAdmin">
+    update sys_admin
+    set systemAccount = #{systemaccount,jdbcType=VARCHAR},
+      systemPassword = #{systempassword,jdbcType=VARCHAR},
+      systemSaltKey = #{systemsaltkey,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.demo.model.SysAdmin">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="systemAccount" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="systemPassword" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="systemSaltKey" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, systemAccount, systemPassword, systemSaltKey
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_admin
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_admin
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.demo.model.SysAdmin">
+    insert into sys_admin (id, systemAccount, systemPassword, 
+      systemSaltKey)
+    values (#{id,jdbcType=INTEGER}, #{systemaccount,jdbcType=VARCHAR}, #{systempassword,jdbcType=VARCHAR}, 
+      #{systemsaltkey,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.demo.model.SysAdmin">
+    insert into sys_admin
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="systemaccount != null">
+        systemAccount,
+      </if>
+      <if test="systempassword != null">
+        systemPassword,
+      </if>
+      <if test="systemsaltkey != null">
+        systemSaltKey,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="systemaccount != null">
+        #{systemaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="systempassword != null">
+        #{systempassword,jdbcType=VARCHAR},
+      </if>
+      <if test="systemsaltkey != null">
+        #{systemsaltkey,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.demo.model.SysAdmin">
+    update sys_admin
+    <set>
+      <if test="systemaccount != null">
+        systemAccount = #{systemaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="systempassword != null">
+        systemPassword = #{systempassword,jdbcType=VARCHAR},
+      </if>
+      <if test="systemsaltkey != null">
+        systemSaltKey = #{systemsaltkey,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.demo.model.SysAdmin">
+    update sys_admin
+    set systemAccount = #{systemaccount,jdbcType=VARCHAR},
+      systemPassword = #{systempassword,jdbcType=VARCHAR},
+      systemSaltKey = #{systemsaltkey,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.demo.model.SysAdmin">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="systemAccount" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="systemPassword" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="systemSaltKey" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, systemAccount, systemPassword, systemSaltKey
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_admin
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_admin
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.demo.model.SysAdmin">
+    insert into sys_admin (id, systemAccount, systemPassword, 
+      systemSaltKey)
+    values (#{id,jdbcType=INTEGER}, #{systemaccount,jdbcType=VARCHAR}, #{systempassword,jdbcType=VARCHAR}, 
+      #{systemsaltkey,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.demo.model.SysAdmin">
+    insert into sys_admin
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="systemaccount != null">
+        systemAccount,
+      </if>
+      <if test="systempassword != null">
+        systemPassword,
+      </if>
+      <if test="systemsaltkey != null">
+        systemSaltKey,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="systemaccount != null">
+        #{systemaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="systempassword != null">
+        #{systempassword,jdbcType=VARCHAR},
+      </if>
+      <if test="systemsaltkey != null">
+        #{systemsaltkey,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.demo.model.SysAdmin">
+    update sys_admin
+    <set>
+      <if test="systemaccount != null">
+        systemAccount = #{systemaccount,jdbcType=VARCHAR},
+      </if>
+      <if test="systempassword != null">
+        systemPassword = #{systempassword,jdbcType=VARCHAR},
+      </if>
+      <if test="systemsaltkey != null">
+        systemSaltKey = #{systemsaltkey,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.demo.model.SysAdmin">
+    update sys_admin
+    set systemAccount = #{systemaccount,jdbcType=VARCHAR},
+      systemPassword = #{systempassword,jdbcType=VARCHAR},
+      systemSaltKey = #{systemsaltkey,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
 </mapper>

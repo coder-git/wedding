@@ -116,4 +116,349 @@
       createTime = #{createtime,jdbcType=BIGINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
+  <resultMap id="BaseResultMap" type="com.demo.model.SysFormInfo">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="customerId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="categoryId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="formName" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="formDescription" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="qrCode" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="createTime" javaType="java.lang.Long" jdbcType="BIGINT" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, customerId, categoryId, formName, formDescription, qrCode, createTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_form_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_form_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.demo.model.SysFormInfo">
+    insert into sys_form_info (id, customerId, categoryId, 
+      formName, formDescription, qrCode, 
+      createTime)
+    values (#{id,jdbcType=INTEGER}, #{customerid,jdbcType=INTEGER}, #{categoryid,jdbcType=INTEGER}, 
+      #{formname,jdbcType=VARCHAR}, #{formdescription,jdbcType=VARCHAR}, #{qrcode,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.demo.model.SysFormInfo">
+    insert into sys_form_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="customerid != null">
+        customerId,
+      </if>
+      <if test="categoryid != null">
+        categoryId,
+      </if>
+      <if test="formname != null">
+        formName,
+      </if>
+      <if test="formdescription != null">
+        formDescription,
+      </if>
+      <if test="qrcode != null">
+        qrCode,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=INTEGER},
+      </if>
+      <if test="categoryid != null">
+        #{categoryid,jdbcType=INTEGER},
+      </if>
+      <if test="formname != null">
+        #{formname,jdbcType=VARCHAR},
+      </if>
+      <if test="formdescription != null">
+        #{formdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="qrcode != null">
+        #{qrcode,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.demo.model.SysFormInfo">
+    update sys_form_info
+    <set>
+      <if test="customerid != null">
+        customerId = #{customerid,jdbcType=INTEGER},
+      </if>
+      <if test="categoryid != null">
+        categoryId = #{categoryid,jdbcType=INTEGER},
+      </if>
+      <if test="formname != null">
+        formName = #{formname,jdbcType=VARCHAR},
+      </if>
+      <if test="formdescription != null">
+        formDescription = #{formdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="qrcode != null">
+        qrCode = #{qrcode,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.demo.model.SysFormInfo">
+    update sys_form_info
+    set customerId = #{customerid,jdbcType=INTEGER},
+      categoryId = #{categoryid,jdbcType=INTEGER},
+      formName = #{formname,jdbcType=VARCHAR},
+      formDescription = #{formdescription,jdbcType=VARCHAR},
+      qrCode = #{qrcode,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.demo.model.SysFormInfo">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="customerId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="categoryId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="formName" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="formDescription" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="qrCode" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="createTime" javaType="java.lang.Long" jdbcType="BIGINT" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, customerId, categoryId, formName, formDescription, qrCode, createTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_form_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_form_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.demo.model.SysFormInfo">
+    insert into sys_form_info (id, customerId, categoryId, 
+      formName, formDescription, qrCode, 
+      createTime)
+    values (#{id,jdbcType=INTEGER}, #{customerid,jdbcType=INTEGER}, #{categoryid,jdbcType=INTEGER}, 
+      #{formname,jdbcType=VARCHAR}, #{formdescription,jdbcType=VARCHAR}, #{qrcode,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.demo.model.SysFormInfo">
+    insert into sys_form_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="customerid != null">
+        customerId,
+      </if>
+      <if test="categoryid != null">
+        categoryId,
+      </if>
+      <if test="formname != null">
+        formName,
+      </if>
+      <if test="formdescription != null">
+        formDescription,
+      </if>
+      <if test="qrcode != null">
+        qrCode,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=INTEGER},
+      </if>
+      <if test="categoryid != null">
+        #{categoryid,jdbcType=INTEGER},
+      </if>
+      <if test="formname != null">
+        #{formname,jdbcType=VARCHAR},
+      </if>
+      <if test="formdescription != null">
+        #{formdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="qrcode != null">
+        #{qrcode,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.demo.model.SysFormInfo">
+    update sys_form_info
+    <set>
+      <if test="customerid != null">
+        customerId = #{customerid,jdbcType=INTEGER},
+      </if>
+      <if test="categoryid != null">
+        categoryId = #{categoryid,jdbcType=INTEGER},
+      </if>
+      <if test="formname != null">
+        formName = #{formname,jdbcType=VARCHAR},
+      </if>
+      <if test="formdescription != null">
+        formDescription = #{formdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="qrcode != null">
+        qrCode = #{qrcode,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.demo.model.SysFormInfo">
+    update sys_form_info
+    set customerId = #{customerid,jdbcType=INTEGER},
+      categoryId = #{categoryid,jdbcType=INTEGER},
+      formName = #{formname,jdbcType=VARCHAR},
+      formDescription = #{formdescription,jdbcType=VARCHAR},
+      qrCode = #{qrcode,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.demo.model.SysFormInfo">
+    <constructor>
+      <idArg column="id" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="customerId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="categoryId" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="formName" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="formDescription" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="qrCode" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="createTime" javaType="java.lang.Long" jdbcType="BIGINT" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, customerId, categoryId, formName, formDescription, qrCode, createTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_form_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from sys_form_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.demo.model.SysFormInfo">
+    insert into sys_form_info (id, customerId, categoryId, 
+      formName, formDescription, qrCode, 
+      createTime)
+    values (#{id,jdbcType=INTEGER}, #{customerid,jdbcType=INTEGER}, #{categoryid,jdbcType=INTEGER}, 
+      #{formname,jdbcType=VARCHAR}, #{formdescription,jdbcType=VARCHAR}, #{qrcode,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.demo.model.SysFormInfo">
+    insert into sys_form_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="customerid != null">
+        customerId,
+      </if>
+      <if test="categoryid != null">
+        categoryId,
+      </if>
+      <if test="formname != null">
+        formName,
+      </if>
+      <if test="formdescription != null">
+        formDescription,
+      </if>
+      <if test="qrcode != null">
+        qrCode,
+      </if>
+      <if test="createtime != null">
+        createTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=INTEGER},
+      </if>
+      <if test="categoryid != null">
+        #{categoryid,jdbcType=INTEGER},
+      </if>
+      <if test="formname != null">
+        #{formname,jdbcType=VARCHAR},
+      </if>
+      <if test="formdescription != null">
+        #{formdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="qrcode != null">
+        #{qrcode,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        #{createtime,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.demo.model.SysFormInfo">
+    update sys_form_info
+    <set>
+      <if test="customerid != null">
+        customerId = #{customerid,jdbcType=INTEGER},
+      </if>
+      <if test="categoryid != null">
+        categoryId = #{categoryid,jdbcType=INTEGER},
+      </if>
+      <if test="formname != null">
+        formName = #{formname,jdbcType=VARCHAR},
+      </if>
+      <if test="formdescription != null">
+        formDescription = #{formdescription,jdbcType=VARCHAR},
+      </if>
+      <if test="qrcode != null">
+        qrCode = #{qrcode,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null">
+        createTime = #{createtime,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.demo.model.SysFormInfo">
+    update sys_form_info
+    set customerId = #{customerid,jdbcType=INTEGER},
+      categoryId = #{categoryid,jdbcType=INTEGER},
+      formName = #{formname,jdbcType=VARCHAR},
+      formDescription = #{formdescription,jdbcType=VARCHAR},
+      qrCode = #{qrcode,jdbcType=VARCHAR},
+      createTime = #{createtime,jdbcType=BIGINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
 </mapper>
